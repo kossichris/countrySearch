@@ -1,0 +1,60 @@
+html {
+    font-family: "Helvetica Neue", sans-serif;
+    width: 100%;
+    color: #666666;
+    text-align: center;
+}
+
+.mt-4{
+    margin-top: 4%;
+}
+.modal-dialog{
+    max-width: 90%;
+    text-align: start;
+
+}
+.close{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.open{
+    position: absolute;
+    right: 50%;
+    top: 50%;
+}
+
+.flag{
+    max-width: 10%;
+}
+
+#countries {
+    height: auto; /*your fixed height*/
+    -webkit-column-count: 4;
+       -moz-column-count: 4;
+            column-count: 4; /*3 in those rules is just placeholder -- can be anything*/
+            overflow: auto;
+            overflow-y: scroll;
+        
+}
+
+/**
+Search input 
+*/
+
+input[type=text] {
+    width: 95%;
+    border: none;
+    height: 40px;
+    border-radius: 15px;
+    padding: 17px;
+  }
+  
+  /* When the input field gets focus, change its width to 100% */
+  input[type=text]:focus {
+    width: 95%;
+    border: none;
+    height: 40px;
+    border-radius: 15px;
+    padding: 17px;
+  }
