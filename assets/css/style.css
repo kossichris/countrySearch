@@ -42,6 +42,9 @@ text-decoration: none;
     max-width: 10%;
 }
 
+ul {
+    list-style-type: none;
+  }
 .countries {
     height: auto; /*your fixed height*/
     -webkit-column-count: 4;
