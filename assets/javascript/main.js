@@ -1,5 +1,5 @@
 
-var { Africa, Asia, Europe, Americas, Oceanie } = {}
+var { Africa, Asia, Europe, Americas, Oceanie } = []
 
 $(document).ready(function () {
     $('#notFound').hide();
@@ -21,51 +21,39 @@ $(document).ready(function () {
                         collection.push(item);
                     }
                 });
+                Africa = map.get("Africa")
+                Asia = map.get("Asia")
+                Europe = map.get("Europe")
+                Americas = map.get("Americas")
+                Oceanie = map.get("Oceania")
+                console.log(map, Oceanie)
 
-                const africa = map.get("Africa")
-                Africa = { region: "Africa", countries: africa }
-
-
-                const asia = map.get("Asia")
-                Asia = { region: "Asia", countries: asia }
-
-
-                const europe = map.get("Europe")
-                Europe = { region: "Europe", countries: europe }
-
-
-                const america = map.get("Americas")
-                Americas = { region: "Americas", countries: america }
-
-
-                const oceanie = map.get("Oceania")
-                Oceanie = { region: "Oceania", countries: oceanie }
-
-                var l = []
-                l[0] = Africa; l[1] = Asia; l[2] = Europe; l[3] = Americas; l[4] = Oceanie
-                console.log(l)
                 // $('#nights').html();
+                $("#region1").html('Africa');
+                $.each(Africa, function (index, value) {
+                    $("#c1").append('<img class="flag" src="' + value.flag + '" />' + '  ' + value.name + ' <br/> ');
 
-                $("#region").html(l[0].region + ' <br/> ');
-                for (const vc of Africa.countries) {
-                    $("#c").append(' <span class="over"> <img class="flag" src="' + vc.flag + '" /> <span>' + '  ' + vc.name + '  </span> </span> <br/> ');
-                }
-                $("#region1").html(l[1].region + ' <br/> ');
-                for (const vc of Asia.countries) {
-                    $("#c1").append(' <span class="over"> <img class="flag" src="' + vc.flag + '" /> <span>' + '  ' + vc.name + '  </span> </span> <br/> ');
-                }
-                $("#region2").html(l[2].region + ' <br/> ');
-                for (const vc of Europe.countries) {
-                    $("#c2").append(' <span class="over"> <img class="flag" src="' + vc.flag + '" /> <span>' + '  ' + vc.name + '  </span> </span> <br/> ');
-                }
-                $("#region3").html(l[3].region + ' <br/> ');
-                for (const vc of Americas.countries) {
-                    $("#c3").append(' <span class="over"> <img class="flag" src="' + vc.flag + '" /> <span>' + '  ' + vc.name + '  </span> </span> <br/> ');
-                }
-                $("#region4").html(l[4].region + ' <br/> ');
-                for (const vc of Oceanie.countries) {
-                    $("#c4").append(' <span class="over"> <img class="flag" src="' + vc.flag + '" /> <span>' + '  ' + vc.name + '  </span> </span> <br/> ');
-                }
+                });
+                $("#region2").html('Europe');
+                $.each(Europe, function (index, value) {
+                    $("#c2").append('<img class="flag" src="' + value.flag + '" />' + '  ' + value.name + ' <br/> ');
+
+                });
+                $("#region3").html('Asia');
+                $.each(Asia, function (index, value) {
+                    $("#c3").append('<img class="flag" src="' + value.flag + '" />' + '  ' + value.name + ' <br/> ');
+
+                });
+                $("#region4").html('America');
+                $.each(Americas, function (index, value) {
+                    $("#c4").append('<img class="flag" src="' + value.flag + '" />' + '  ' + value.name + ' <br/> ');
+
+                });
+                $("#region5").html('Oceania');
+                $.each(Oceanie, function (index, value) {
+                    $("#c5").append('<img class="flag" src="' + value.flag + '" />' + '  ' + value.name + ' <br/> ');
+
+                });
                 return map;
             },
             error: function (res) {
@@ -76,11 +64,72 @@ $(document).ready(function () {
     });
 });
 
-$("#myInput").on("keyup", function () {
-    var value = this.value.toLowerCase().trim();
-        $("#wrap-region a span").css({"display":"contents"}).filter(function (res) {
-            return $(this).text().toLowerCase().trim().indexOf(value) == -1;
-        }).css({"display":"none"})
-        $(".flag").width(15)
-});
 
+
+$("#myInput").on("keyup", function () {
+    let filteredCountries = []
+    var value = this.value.toLowerCase().trim();
+    var listCountries = [...Africa, ...Europe, ...Americas, ...Asia, ...Oceanie]
+    listCountries.forEach((el) => {
+        el.name.toLowerCase().trim().indexOf(value) !== -1 ? filteredCountries.push({ region: el.region, name: el.name, flag: el.flag }) : null
+    });
+    console.log(value)
+
+    if (filteredCountries.length > 0) {
+        $('#notFound').hide();
+
+        $('#region1').hide();
+        $('#region2').hide();
+        $('#region3').hide();
+        $('#region4').hide();
+        $('#region5').hide();
+
+        $('#c1').hide();
+        $('#c2').hide();
+        $('#c3').hide();
+        $('#c4').hide();
+        $('#c5').hide();
+
+        $.each(filteredCountries, function (index, value) {
+            $("#c").empty();
+            $("#region").html(value.region);
+            $("#c").append('<img class="flag" src="' + value.flag + '" />' + '  ' + value.name + ' <br/> ');
+        });
+        console.log($("#c"))
+        $('#region').show();
+        $('#c').show();
+        filteredCountries = []
+
+    } else if (filteredCountries.length === 0 && value.length > 0) {
+        $('#notFound').show();
+        $('#region1').hide();
+        $('#region2').hide();
+        $('#region3').hide();
+        $('#region4').hide();
+        $('#region5').hide();
+
+        $('#c1').hide();
+        $('#c2').hide();
+        $('#c3').hide();
+        $('#c4').hide();
+        $('#c5').hide();
+
+
+    } else if (value.length === 0) {
+        console.log("value is empty")
+        $('#notFound').hide();
+        $('#region').hide();
+        $('#c').hide();
+        $("#region1").show();
+        $("#c1").show();
+        $("#region2").show();
+        $("#c2").show();
+        $("#region3").show();
+        $("#c3").show();
+        $("#region4").show();
+        $("#c4").show();
+        $("#region5").show();
+        $("#c5").show();
+
+    }
+});
