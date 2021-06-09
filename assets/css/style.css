@@ -4,7 +4,21 @@ html {
     color: #666666;
     text-align: center;
 }
+a{
+    color: #1e2125;
+text-decoration: none;
 
+}
+a:hover{
+    color: #10141a;
+text-decoration: none;
+
+}
+span:hover{
+    color: #1a5eb6;
+text-decoration: none;
+
+}
 .mt-4{
     margin-top: 4%;
 }
@@ -28,13 +42,14 @@ html {
     max-width: 10%;
 }
 
-#countries {
+.countries {
     height: auto; /*your fixed height*/
     -webkit-column-count: 4;
        -moz-column-count: 4;
             column-count: 4; /*3 in those rules is just placeholder -- can be anything*/
             overflow: auto;
             overflow-y: scroll;
+            width: auto;
         
 }
 

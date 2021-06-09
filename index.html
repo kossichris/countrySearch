@@ -34,65 +34,32 @@
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel"></h5>
           <i class="bi bi-search"></i>
-          <input type="text" id="myInput" name="search"  placeholder="Search..">
+          <input type="text" id="myInput"  name="search"  placeholder="Search..">
          
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button"  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
             <!--popup's close button-->
             <div id="wrapper">
-
-
-                <div id="wrap-region">
+                <ul id="wrap-region">
                     <div>
-                        <div id="notFound" class="mt-4"> We couldn't find any assets taht matched your search</div>
+                        <div id="notFound" class="mt-4"> We couldn't find any assets that matched your search</div>
                     </div>
-                    <div class="mt-4">
-                        <h3 id="region"></h3>
-                        <div id="imageBox"></div>
-                        <div id="countries">
-                            <div id="c"></div>
-                        </div>
-                    </div>
+                    <li class="mt-4"> <h3><a href="#" id="region"> </a></h3><li class="countries"><a id="c" href="#"></a></li></li>
 
-                    <div class="mt-4">
-                        <h3 id="region1"></h3>
-                        <div id="imageBox"></div>
-                        <div id="countries">
-                            <div id="c1"></div>
-                        </div>
-                    </div>
+                    <li class="mt-4"> <h3><a href="#" id="region1"></a></h3> <li class="countries"><a id="c1" href="#"></a> </li></li>
+                    
 
-                    <div class="mt-4">
-                        <h3 id="region2"></h3>
-                        <div id="imageBox"></div>
-                        <div id="countries">
-                            <div id="c2"></div>
-                        </div>
-                    </div>
-                    <div class="mt-4">
-                        <h3 id="region3"></h3>
-                        <div id="imageBox"></div>
-                        <div id="countries">
-                            <div id="c3"></div>
-                        </div>
-                    </div>
+                    <li class="mt-4"><h3><a href="#" id="region2"></a></h3>  <li class="countries"><a id="c2" href="#"></a></li></li>
+                  
 
-                    <div class="mt-4">
-                        <h3 id="region4"></h3>
-                        <div id="imageBox"></div>
-                        <div id="countries">
-                            <div id="c4"></div>
-                        </div>
-                    </div>
-                    <div class="mt-4">
-                        <h3 id="region5"></h3>
-                        <div id="imageBox"></div>
-                        <div id="countries">
-                            <div id="c5"></div>
-                        </div>
-                    </div>
-                </div>
+                    <li class="mt-4"><h3><a href="#" id="region3"></a></h3> <li class="countries"><a id="c3" href="#"></a></li></li>
+                   
+
+                    <li class="mt-4"><h3><a href="#" id="region4"></a></h3><li class="countries"><a id="c4" href="#"></a></li></li>
+                    
+                  </ul>
+
 
             </div>
           
@@ -118,6 +85,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
     <script src="./assets//javascript/main.js">
     </script>
+
     <script>
 var myModal = document.getElementById('myModal')
 var myInput = document.getElementById('myInput')
